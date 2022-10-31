@@ -19,6 +19,6 @@
 
 .face::after {
     font-size: 8rem;
-    content: '/assets/smiley.png';
+    content: '😁';
     position: absolute;
 }

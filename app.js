@@ -14,49 +14,25 @@ const winsEl = document.getElementById('wins');
 // initialize state
 const hidingPlaces = ['tree', 'shed', 'boulder'];
 
-let totalLosses = 0;
 let correctGuesses = 0;
 let totalGuesses = 0;
 
 treeButton.addEventListener('click', () => {
-    totalGuesses++;
     const hidingSpot = Math.floor(Math.random() * 3);
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'tree');
-    if (answer === 'tree') {
-        correctGuesses++;
-        console.log(correctGuesses + 'W');
-    } else {
-        totalLosses++;
-        console.log(totalLosses + 'L');
-    }
-    displayResults();
 });
 
 boulderButton.addEventListener('click', () => {
-    totalGuesses++;
     const hidingSpot = Math.floor(Math.random() * 3);
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'boulder');
-    if (answer === 'tree') {
-        correctGuesses++;
-    } else {
-        totalLosses++;
-    }
-    displayResults();
 });
 
 shedButton.addEventListener('click', () => {
-    totalGuesses++;
     const hidingSpot = Math.floor(Math.random() * 3);
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'shed');
-    if (answer === 'tree') {
-        correctGuesses++;
-    } else {
-        totalLosses++;
-    }
-    displayResults();
 });
 
 function resetface() {
@@ -64,16 +40,22 @@ function resetface() {
     boulderContainer.classList.remove('face');
     shedContainer.classList.remove('face');
 }
-function displayResults() {
-    winsEl.textContent = correctGuesses;
-    lossesEl.textContent = totalLosses;
-    totalEl.textContent = totalGuesses;
-}
+
 function handleGuess(correctSpot, userGuess) {
     // reset the styles
+    resetface();
     // then increment the guesses
+    totalGuesses++;
     // then grab the appropriate container element for the correct guess from the DOM
+    const correctHidingPlace = document.getElementById(`${correctSpot}-container`);
     // then add the face class to that element so that the face shows up
+    correctHidingPlace.classList.add('face');
     // then if the user guess is correct, increment the correct guesses
+    if (userGuess === correctSpot) {
+        correctGuesses++;
+    }
     // update the DOM to show this change to the user (including the losses, not tracked directly in state)
+    winsEl.textContent = correctGuesses;
+    totalEl.textContent = totalGuesses;
+    lossesEl.textContent = totalGuesses - correctGuesses;
 }
