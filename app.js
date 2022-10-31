@@ -25,9 +25,12 @@ treeButton.addEventListener('click', () => {
     handleGuess(answer, 'tree');
     if (answer === 'tree') {
         correctGuesses++;
+        console.log(correctGuesses + 'W');
     } else {
         totalLosses++;
+        console.log(totalLosses + 'L');
     }
+    displayResults();
 });
 
 boulderButton.addEventListener('click', () => {
@@ -40,6 +43,7 @@ boulderButton.addEventListener('click', () => {
     } else {
         totalLosses++;
     }
+    displayResults();
 });
 
 shedButton.addEventListener('click', () => {
@@ -52,6 +56,7 @@ shedButton.addEventListener('click', () => {
     } else {
         totalLosses++;
     }
+    displayResults();
 });
 
 function resetface() {
@@ -59,7 +64,11 @@ function resetface() {
     boulderContainer.classList.remove('face');
     shedContainer.classList.remove('face');
 }
-
+function displayResults() {
+    winsEl.textContent = correctGuesses;
+    lossesEl.textContent = totalLosses;
+    totalEl.textContent = totalGuesses;
+}
 function handleGuess(correctSpot, userGuess) {
     // reset the styles
     // then increment the guesses
