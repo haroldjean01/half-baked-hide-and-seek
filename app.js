@@ -14,6 +14,7 @@ const winsEl = document.getElementById('wins');
 // initialize state
 const hidingPlaces = ['tree', 'shed', 'boulder'];
 
+let totalLosses = 0;
 let correctGuesses = 0;
 let totalGuesses = 0;
 
@@ -22,6 +23,11 @@ treeButton.addEventListener('click', () => {
     const hidingSpot = Math.floor(Math.random() * 3);
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'tree');
+    if (answer === 'tree') {
+        correctGuesses++;
+    } else {
+        totalLosses++;
+    }
 });
 
 boulderButton.addEventListener('click', () => {
@@ -29,6 +35,11 @@ boulderButton.addEventListener('click', () => {
     const hidingSpot = Math.floor(Math.random() * 3);
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'boulder');
+    if (answer === 'tree') {
+        correctGuesses++;
+    } else {
+        totalLosses++;
+    }
 });
 
 shedButton.addEventListener('click', () => {
@@ -36,7 +47,18 @@ shedButton.addEventListener('click', () => {
     const hidingSpot = Math.floor(Math.random() * 3);
     const answer = hidingPlaces[hidingSpot];
     handleGuess(answer, 'shed');
+    if (answer === 'tree') {
+        correctGuesses++;
+    } else {
+        totalLosses++;
+    }
 });
+
+function resetface() {
+    treeContainer.classList.remove('face');
+    boulderContainer.classList.remove('face');
+    shedContainer.classList.remove('face');
+}
 
 function handleGuess(correctSpot, userGuess) {
     // reset the styles

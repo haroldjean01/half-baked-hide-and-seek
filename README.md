@@ -42,9 +42,17 @@ Look closely at the HTML provided for you. When you add a class called `face` to
 | On clicking the incorrect hiding place button, the number of incorrect guesses increments            |   2 |
 | On click, see the correct hiding place's image change, clearing out the previous correct guess style |   3 |
 
-### Ideas for stretch goals 
-- Add a hard reset button that clears all wins, losses, and total
-- Add a 'try again' button users must press to clear styles instead of just resetting automatically between rounds. Disable buttons between turns
-- Let the user choose how many cups they have to choose from
-- Set it up so that more than one hiding place might be correct
-- Add a dropdown to let the user choose different domains for the game: cup game, which piñata contains the candy, which card is the queen of spades, etc
+### Ideas for stretch goals
+
+-   Add a hard reset button that clears all wins, losses, and total
+-   Add a 'try again' button users must press to clear styles instead of just resetting automatically between rounds. Disable buttons between turns
+-   Let the user choose how many cups they have to choose from
+-   Set it up so that more than one hiding place might be correct
+-   Add a dropdown to let the user choose different domains for the game: cup game, which piñata contains the candy, which card is the queen of spades, etc
+
+-Open PR from dev to main with your changes 0.5
+-Preview deploy from Netlify showing on your PR 0.5
+-On clicking a hiding place button, the total number of guesses increment 2
+-On clicking the correct hiding place button, the total number of correct guesses increment 2
+-On clicking the incorrect hiding place button, the number of incorrect guesses increments 2
+-On click, see the correct hiding place's image change, clearing out the previous correct guess style 3
