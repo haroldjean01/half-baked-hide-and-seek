@@ -19,6 +19,6 @@
 
 .face::after {
     font-size: 8rem;
-    content: '😃';
+    content: '😁';
     position: absolute;
 }
